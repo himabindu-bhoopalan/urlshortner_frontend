@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <title>url-shortner</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h1>URL SHORTNER</h1>
+    <form [formGroup]="urlform" (submit)="postURL()" class="my-4 form-inline">
+      <label for="fullurl" class="sr-only">Enter URL:</label>
+      <input type="url" placeholder="URL" formControlName="url" class="form-control mr-2 col">
+      <button class="btn btn-success" type="Submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
