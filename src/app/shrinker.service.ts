@@ -12,10 +12,10 @@ export class ShrinkerService {
   }
   postURL(data):Observable<any>{
     console.log('posted');
-    return this.http.post("http://localhost:5000/shorturl",data);
+    return this.http.post("https://urlshortnerhima.herokuapp.com/shorturl",data);
   }
   getURL(): Observable<any> {
     console.log('inside shrinker.service.ts')
-    return this.http.get("http://localhost:5000/view");
+    return this.http.get("https://urlshortnerhima.herokuapp.com/view");
   }
 }
