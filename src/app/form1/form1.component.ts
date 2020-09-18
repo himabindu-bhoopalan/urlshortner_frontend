@@ -20,6 +20,7 @@ export class Form1Component implements OnInit {
   notRedirected = false;
   duplicateData=false;
   isCopied=false;
+  dataEmpty=false;
   constructor(private shrinker: ShrinkerService, private router: Router) {
 
     //to take input url  
@@ -35,12 +36,15 @@ export class Form1Component implements OnInit {
       if (data !== null) {
         this.dataLoaded = true;
       }
+      if(data===null){
+        this.dataEmpty=true;
+      }
       console.log('inside viewurl.comp.ts');
       this.urldb = data;
       console.log(this.urldb);
       var shortURL='';
       this.urldb.map((x)=>{
-        x["shortURL"]="https://hbit-ly.herokuapp.com/"+x.short;
+        x["shortURL"]="https://hbbit.herokuapp.com/"+x.short;
       });
     })
 

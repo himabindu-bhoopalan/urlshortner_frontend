@@ -29,6 +29,7 @@
       </tr>
     </thead>
     <tbody>
+      <tr *ngIf="dataEmpty">No data found</tr>
       <tr *ngFor='let url of urldb;let k=index'>
         <td><a href={{url.long}} target="_blank">{{url.long}}</a></td>
         <td><a href={{url.long}} (click)="redirect(url.short)">
