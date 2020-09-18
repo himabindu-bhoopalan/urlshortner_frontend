@@ -40,7 +40,7 @@ export class Form1Component implements OnInit {
       console.log(this.urldb);
       var shortURL='';
       this.urldb.map((x)=>{
-        x["shortURL"]="http://localhost:3040/"+x.short;
+        x["shortURL"]="https://hbit-ly.herokuapp.com/"+x.short;
       });
     })
 
