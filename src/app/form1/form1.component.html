@@ -29,10 +29,8 @@
     <tbody>
       <tr *ngFor='let url of urldb;let k=index'>
         <td><a href={{url.long}} target="_blank">{{url.long}}</a></td>
-        <td><a (click)="redirect(url.short)"> <span class="spinner-border spinner-border-sm" role="status"
-              *ngIf="notRedirected" aria-hidden="true">
-
-            </span>{{url.short}}</a>
+        <td><a href={{url.long}} (click)="redirect(url.short)"> 
+            {{url.shortURL}}</a>
         </td>
         <td><a class="delete" id="url._id" (click)="deleteItem(k,url._id)"><i class="fa fa-trash"
               aria-hidden="true"></i></a>

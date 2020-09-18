@@ -36,6 +36,10 @@ export class Form1Component implements OnInit {
       console.log('inside viewurl.comp.ts');
       this.urldb = data;
       console.log(this.urldb);
+      var shortURL='';
+      this.urldb.map((x)=>{
+        x["shortURL"]="http://localhost:3040/"+x.short;
+      });
     })
 
 
@@ -86,9 +90,9 @@ export class Form1Component implements OnInit {
   redirect(shortURL) {
     console.log('shorturl' + shortURL);
     this.shrinker.redirectURL(shortURL).subscribe((data) => {
-      if (data.status = 404) {
-        console.log("404");
-      }
+      console.log(data);
+      window.location.href = data.url;
+      // this.router.navigate([''])
     })
 
 
