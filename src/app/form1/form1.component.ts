@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShrinkerService } from '../shrinker.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-form1',
   templateUrl: './form1.component.html',
@@ -18,6 +19,7 @@ export class Form1Component implements OnInit {
   gotbackData = true;
   notRedirected = false;
   duplicateData=false;
+  isCopied=false;
   constructor(private shrinker: ShrinkerService, private router: Router) {
 
     //to take input url  
@@ -94,9 +96,7 @@ export class Form1Component implements OnInit {
       window.location.href = data.url;
       // this.router.navigate([''])
     })
-
-
   }
-
+  
 
 }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { ClipboardModule } from "@angular/cdk/clipboard";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Form1Component } from './form1/form1.component';
@@ -17,7 +17,8 @@ import{ReactiveFormsModule,FormsModule} from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,9 +8,9 @@
       <span class="spinner-border spinner-border-sm" role="status" *ngIf="!gotbackData" aria-hidden="true"></span>
       Submit
     </button>
-  
+
   </form>
-  <div class="alert alert-warning alert-dismissible fade show"  *ngIf="duplicateData" role="alert">
+  <div class="alert alert-warning alert-dismissible fade show" *ngIf="duplicateData" role="alert">
     <strong>Oops!</strong> Duplicate URL
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
@@ -21,7 +21,9 @@
       <tr>
         <th>Full URL</th>
         <th>Short URL</th>
+        <th>Copy to Clipboard</th>
         <th>Delete</th>
+
         <th>Clicks</th>
 
       </tr>
@@ -29,12 +31,15 @@
     <tbody>
       <tr *ngFor='let url of urldb;let k=index'>
         <td><a href={{url.long}} target="_blank">{{url.long}}</a></td>
-        <td><a href={{url.long}} (click)="redirect(url.short)"> 
+        <td><a href={{url.long}} (click)="redirect(url.short)">
             {{url.shortURL}}</a>
+        </td>
+        <td class="text-center"><i   [cdkCopyToClipboard]=url.shortURL class="fa fa-copy copy" aria-hidden="true"></i>
         </td>
         <td><a class="delete" id="url._id" (click)="deleteItem(k,url._id)"><i class="fa fa-trash"
               aria-hidden="true"></i></a>
         </td>
+
         <td>{{url.clicks}}
         </td>
       </tr>

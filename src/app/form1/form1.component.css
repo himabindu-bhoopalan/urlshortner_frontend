@@ -8,3 +8,10 @@ a:hover{
 .alert.alert-primary{
     width:20 vmin;
 }
+.copy:hover{
+    color:blue;
+}
+.text-center{
+    margin-right:100px;
+}
+ 
