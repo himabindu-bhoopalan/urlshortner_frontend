@@ -1,23 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <title>url-shortner</title>
-</head>
-
-<body>
-  <div class="container-fluid">
-    <h1>URL SHORTNER</h1>
-    <form [formGroup]="urlform" (submit)="postURL()" class="my-4 form-inline">
-      <label for="fullurl" class="sr-only">Enter URL:</label>
-      <input type="url" placeholder="URL" formControlName="url" class="form-control mr-2 col">
-      <button class="btn btn-success" type="Submit">Submit</button>
-    </form>
+<div class="container-fluid-enterurl">
+  <h1 class="d-flex title justify-content-center mt-5">URL SHORTNER</h1>
+  <form [formGroup]="urlform" (submit)="postURL()" class="my-4 form-inline">
+    <label for="fullurl" class="sr-only">Enter URL:</label>
+    <input type="url" placeholder="URL" formControlName="url" class="form-control  ml-4 mr-2 col"
+      placeholder="Enter URL">
+    <button class="btn btn-success" type="Submit">
+      <span class="spinner-border spinner-border-sm" role="status" *ngIf="!gotbackData" aria-hidden="true"></span>
+      Submit
+    </button>
+  
+  </form>
+  <div class="alert alert-warning alert-dismissible fade show"  *ngIf="duplicateData" role="alert">
+    <strong>Oops!</strong> Duplicate URL
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Full URL</th>
+        <th>Short URL</th>
+        <th>Delete</th>
+        <th>Clicks</th>
 
-</body>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let url of urldb;let k=index'>
+        <td><a href={{url.long}} target="_blank">{{url.long}}</a></td>
+        <td><a (click)="redirect(url.short)"> <span class="spinner-border spinner-border-sm" role="status"
+              *ngIf="notRedirected" aria-hidden="true">
 
-</html>
+            </span>{{url.short}}</a>
+        </td>
+        <td><a class="delete" id="url._id" (click)="deleteItem(k,url._id)"><i class="fa fa-trash"
+              aria-hidden="true"></i></a>
+        </td>
+        <td>{{url.clicks}}
+        </td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
