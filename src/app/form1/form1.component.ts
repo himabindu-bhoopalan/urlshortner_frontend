@@ -16,11 +16,13 @@ export class Form1Component implements OnInit {
   show: boolean = false;
   dataLoaded: Boolean = false;
   urldb
-  gotbackData = true;
+  gotbackData = false;
   notRedirected = false;
   duplicateData=false;
   isCopied=false;
   dataEmpty=false;
+  // serverLink="https://hbbit.herokuapp.com/";
+  serverLink="http://localhost:3040/";
   constructor(private shrinker: ShrinkerService, private router: Router) {
 
     //to take input url  
@@ -36,15 +38,13 @@ export class Form1Component implements OnInit {
       if (data !== null) {
         this.dataLoaded = true;
       }
-      if(data===null){
-        this.dataEmpty=true;
-      }
+
       console.log('inside viewurl.comp.ts');
       this.urldb = data;
       console.log(this.urldb);
       var shortURL='';
       this.urldb.map((x)=>{
-        x["shortURL"]="https://hbbit.herokuapp.com/"+x.short;
+        x["shortURL"]=this.serverLink+x.short;
       });
     })
 
@@ -55,11 +55,17 @@ export class Form1Component implements OnInit {
 
   ngOnInit(): void {
   }
+
+  closewarning(){
+    this.duplicateData=false;
+    console.log(this.duplicateData);
+  }
   postURL() {
     if (this.urlform.valid) {
       console.log(this.urlform.value.url);
-
+      this.gotbackData=true;
       this.shrinker.postURL(this.urlform.value).subscribe((data) => {
+        this.gotbackData=false;
         if (data === null) {
           this.gotbackData = false;
         } else {
