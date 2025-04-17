@@ -22,7 +22,7 @@ export class ShrinkerService {
   getURL(): Observable<any> {
     // console.log('inside shrinker.service.ts')
     
-    return this.http.get(this.serverLink+"/home");
+    return this.http.get(this.serverLink+"home");
     // return this.http.get("http://localhost:3040/");
   }
   deleteURL(id):Observable<any>{
