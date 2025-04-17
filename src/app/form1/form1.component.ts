@@ -21,7 +21,7 @@ export class Form1Component implements OnInit {
   duplicateData=false;
   isCopied=false;
   dataEmpty=false;
-  serverLink="https://hbbit.herokuapp.com/";
+  serverLink="https://urlnode-production.up.railway.app/";
   // serverLink="http://localhost:3040/";
   constructor(private shrinker: ShrinkerService, private router: Router) {
 
