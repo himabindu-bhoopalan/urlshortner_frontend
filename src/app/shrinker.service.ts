@@ -7,7 +7,7 @@ import { ConstantPool } from '@angular/compiler';
 })
 
 export class ShrinkerService {
-  serverLink="https://hbbit.herokuapp.com/";
+  serverLink="https://urlnode-production.up.railway.app/";
   // serverLink="http://localhost:3040/";
   constructor(private http:HttpClient) { 
 
